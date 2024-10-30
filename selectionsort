@@ -1,0 +1,41 @@
+#include <stdio.h>
+void selectionSort(int a[], int n) 
+{
+	for (int i = 0; i < n - 1; i++) 
+	{
+		int minIndex = i;
+		for (int j = i + 1; j < n; j++) 
+		{
+			if (a[j] < a[minIndex]) 
+			{
+				minIndex = j;
+			}
+		}
+		int t = a[minIndex];
+		a[minIndex] = a[i];
+		a[i] = t;
+	}
+}
+void print(int a[], int n) 
+{
+	for (int i = 0; i < n; i++) 
+	{
+		printf("%d ", a[i]);
+	}
+	printf("\n");
+}
+int main() 
+{
+	int a[50], n;
+	printf("Enter the limit of the array: ");
+	scanf("%d", &n);
+	printf("Enter the elements: ");
+	for (int i = 0; i < n; i++)
+	{
+		scanf("%d", &a[i]);
+	}
+	selectionSort(a, n);
+	printf("Sorted array: ");
+	print(a, n);
+	return 0;
+}
